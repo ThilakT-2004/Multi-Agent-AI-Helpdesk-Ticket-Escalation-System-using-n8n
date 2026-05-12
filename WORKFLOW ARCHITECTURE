@@ -1,0 +1,23 @@
+The workflow follows a sequential AI-driven support automation process.
+
+Customer Form Submission
+            ↓
+      Form Trigger Node
+            ↓
+   Intent + Sentiment AI Agent
+            ↓
+        Edit Fields Node
+            ↓
+      Priority AI Agent
+            ↓
+      Response AI Agent
+            ↓
+           IF Node
+        /            \
+   TRUE Branch     FALSE Branch
+        ↓                ↓
+Urgent Gmail      Normal Gmail
+        ↓                ↓
+ Department Routing Nodes
+        \              /
+         Google Sheets
