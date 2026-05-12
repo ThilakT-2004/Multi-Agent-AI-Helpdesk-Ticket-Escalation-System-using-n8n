@@ -1,0 +1,205 @@
+# NODE DETAILS DOCUMENTATION
+
+---
+
+# 1️⃣ Form Trigger Node
+
+## Node Name
+
+`On form submission`
+
+## Purpose
+
+Captures customer support requests through an n8n form interface.
+
+## Input Fields
+
+- Name
+- Email
+- Message
+
+## Workflow Role
+
+Acts as the entry point of the automation workflow.
+
+---
+
+# 2️⃣ Intent + Sentiment AI Agent
+
+## Node Name
+
+`Gemini AI Intent and sentiment Agent`
+
+## Purpose
+
+Analyzes customer messages and detects:
+
+- customer intent
+- customer sentiment
+
+## Possible Intent Outputs
+
+- Payment Issue
+- Technical Support
+- Account Recovery
+- Sales Inquiry
+- General Query
+
+## Possible Sentiment Outputs
+
+- Angry
+- Neutral
+- Happy
+
+## Workflow Role
+
+Performs intelligent customer issue analysis.
+
+---
+
+# 3️⃣ Edit Fields Node
+
+## Node Name
+
+`Edit Fields`
+
+## Purpose
+
+Extracts Intent and Sentiment into separate text fields.
+
+## Extracted Fields
+
+- Intent
+- Sentiment
+
+## Workflow Role
+
+Converts AI output into structured workflow data.
+
+---
+
+# 4️⃣ Priority AI Agent
+
+## Node Name
+
+`Gemini AI Priority Agent`
+
+## Purpose
+
+Determines support ticket priority using:
+
+- Intent
+- Sentiment
+
+## Possible Outputs
+
+- High
+- Medium
+- Normal
+
+## Workflow Role
+
+Performs intelligent ticket escalation analysis.
+
+---
+
+# 5️⃣ Response AI Agent
+
+## Node Name
+
+`Gemini AI Response Agent`
+
+## Purpose
+
+Generates automated professional customer support replies.
+
+## Workflow Role
+
+Automates customer communication.
+
+---
+
+# 6️⃣ IF Condition Node
+
+## Node Name
+
+`If`
+
+## Purpose
+
+Checks whether the generated priority is High.
+
+## TRUE Branch
+
+Urgent support handling.
+
+## FALSE Branch
+
+Normal support handling.
+
+## Workflow Role
+
+Performs intelligent workflow routing.
+
+---
+
+# 7️⃣ Gmail Nodes
+
+## Node Names
+
+- `Send a message`
+- `Send a message1`
+
+## Purpose
+
+Automatically sends support emails to customers.
+
+## Workflow Role
+
+Automates customer notification system.
+
+---
+
+# 8️⃣ Department Assignment Nodes
+
+## Node Names
+
+- `Edit Fields2`
+- `Edit Fields3`
+
+## Departments Assigned
+
+| Branch | Department |
+| --- | --- |
+| TRUE | Escalation Team |
+| FALSE | General Support |
+
+## Workflow Role
+
+Routes support tickets to appropriate departments.
+
+---
+
+# 9️⃣ Google Sheets Node
+
+## Node Name
+
+`Append or update row in sheet`
+
+## Purpose
+
+Stores customer ticket information and AI outputs.
+
+## Stored Data
+
+- Name
+- Email
+- Message
+- Intent
+- Sentiment
+- Priority
+- Department
+
+## Workflow Role
+
+Acts as centralized support ticket database.
